@@ -12,6 +12,10 @@ jobs:
   run-scripts:
     runs-on: ubuntu-latest
 
+    env:
+      HORUSEC_API_URI: ${{ secrets.HORUSEC_API_URI }}
+      HORUSEC_AUTHORIZATION: ${{ secrets.HORUSEC_AUTHORIZATION }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -23,7 +27,7 @@ jobs:
       - name: SAST - Horusec Report Generation 📊
         run: |
           cd reports
-          curl -sL https://raw.githubusercontent.com/matheusbanhos/opensource-devsecops/main/tools/horusec/horusec_json2md/horusec_json2md.py  -o horusec_json2md.py 
+          curl -sL https://raw.githubusercontent.com/matheusbanhos/opensource-devsecops/main/tools/horusec/horusec_json2md/horusec_json2md.py -o horusec_json2md.py 
           python3 horusec_json2md.py horusec_report.json horusec_report.md
 
       - name: SAST - Horusec Upload Report Artifact 💾
