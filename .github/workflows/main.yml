@@ -22,7 +22,7 @@ jobs:
 
       - name: SAST - Horusec Run 🐞
         run: |
-          curl -sL https://raw.githubusercontent.com/matheusbanhos/opensource-devsecops/main/tools/horusec/horusec_docker_linux_plataforma.sh| bash
+          curl -sL https://raw.githubusercontent.com/matheusbanhos/opensource-devsecops/main/tools/horusec/horusec_docker_linux.sh| bash
 
       - name: SAST - Horusec Report Generation 📊
         run: |
